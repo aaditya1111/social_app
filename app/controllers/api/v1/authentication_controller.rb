@@ -13,6 +13,7 @@ class Api::V1::AuthenticationController < ApplicationController
     end
   end
 
+
 #user logout api
   def logout
     $redis.del(current_token)
