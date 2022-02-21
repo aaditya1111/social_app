@@ -9,7 +9,7 @@ class Api::V1::StudentsController < ApplicationController
       user = User.where(user_name: request_params[:user_name])
 
       if user.blank?
-        validate_user
+        validate_user(post_params)
 
         user = User.create!({
           name: request_params[:name],
@@ -41,7 +41,7 @@ class Api::V1::StudentsController < ApplicationController
   end
 
 
-  def validate_user(student_params)
+  def validate_user(post_params)
       mobile_number_regex = /^[1-9]\d{9}$/
       email_regex = /\A[\w+\-.]+@[a-z\d\-]+(\.[a-z\d\-]+)*\.[a-z]+\z/i
 
