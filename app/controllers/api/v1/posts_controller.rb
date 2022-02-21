@@ -47,7 +47,6 @@ class Api::V1::StudentsController < ApplicationController
 
       render json: {error: "Please enter name"}, status: :bad_request if params[:name].blank?
       render json: {error: "Please enter email in right format"}, status: :bad_request if params[:name].blank? || !params[:user_name].match(email_regex)
-      puts params[:password].size()
       render json: {error: "Please enter a valid password"}, status: :bad_request if params[:password].blank? || !(params[:password].size() > 7)
       render json: {error: "Please enter valid mobile_number"}, status: :bad_request if params[:mobile].blank? || !params[:mobile].match(mobile_number_regex)
   end
