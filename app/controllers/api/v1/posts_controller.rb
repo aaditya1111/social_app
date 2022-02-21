@@ -1,6 +1,10 @@
 class Api::V1::StudentsController < ApplicationController
   skip_before_action :authenticate, only: [:create, :index]
 
+  def index
+    posts = Post.order(created_at: :desc)
+  end
+
   def create
     begin
 
@@ -29,9 +33,10 @@ class Api::V1::StudentsController < ApplicationController
       render json: {status: 'SUCCESS', message:"Post created Successfully with title #{post.title}", data: post}, status: :ok
 
     rescue  => error
-      render json: {message: error}
+      render json: {status: 'ERROR', message:'Post creation failed!', data: error}, status: :unprocessable_entity
     end
   end
+
 
 
   private
