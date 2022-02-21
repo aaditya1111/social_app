@@ -10,7 +10,7 @@ class ApplicationController < ActionController::API
   end
 
   def current_user
-    @current_user = User.find($redis.hget(current_token, :student_id)) if current_token
+    @current_user = User.find($redis.hget(current_token, :user_id)) if current_token
   end
 
   def authenticate

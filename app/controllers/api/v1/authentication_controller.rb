@@ -3,7 +3,7 @@ class Api::V1::AuthenticationController < ApplicationController
 
 # user login authentication api
   def create
-    if user = Session.authenticate(params[:email], params[:password])
+    if user = Session.authenticate(params[:user_name], params[:password])
       token = AuthToken.issue(user_id: user.id)
       $redis.hset(token, 'user_id', user.id)
       $redis.expire(token, 10.days.to_i)
