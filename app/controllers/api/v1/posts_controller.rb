@@ -41,6 +41,15 @@ class Api::V1::PostsController < ApplicationController
     end
   end
 
+  def list_internet_protocals
+    posts = Post.includes(:user).order("posts.created_at desc").as_json(only: [:author_ip, :user_id], include: [:user]).map(&:deep_symbolize_keys)
+
+    render json: {status: 'SUCCESS', message:"Listing all IPs with corresponding users", total_count: posts.count, data: posts}, status: :ok
+  end
+
+
+
+
 
 
   private
