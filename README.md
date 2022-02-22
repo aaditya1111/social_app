@@ -59,10 +59,10 @@ Features of this app required in assignment:
 * POST - http://localhost:3000/api/v1/authentication - User Login API
 
 
+* POST - http://localhost:3000/api/v1/posts - Create post & user API
+
+
 * POST - http://localhost:3000/api/v1/ratings - User Create rating on posts API
-
-
-* POST - http://localhost:3000/api/v1/posts - Create post API
 
 
 * GET - http://localhost:3000/api/v1/posts - Get top N posts API
