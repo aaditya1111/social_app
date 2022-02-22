@@ -53,7 +53,7 @@ Features of this app required in assignment:
 7. Now you can check all APIs working through endpoints.
 
 
-##API Endpoints for Student CRUD & AUthentication(Login & Logout)
+##API Endpoints for Social APP CRUD & AUthentication(Login & Logout)
 
 
 * POST - http://localhost:3000/api/v1/authentication - User Login API
