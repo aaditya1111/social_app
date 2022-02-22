@@ -1,8 +1,12 @@
-class Api::V1::StudentsController < ApplicationController
+class Api::V1::PostsController < ApplicationController
   skip_before_action :authenticate, only: [:create, :index]
 
   def index
-    posts = Post.order(created_at: :desc)
+    posts = Post.order(average_rating: :desc).as_json(only: [:title, :content]).map(&:deep_symbolize_keys)
+
+    total_posts = posts.count
+
+    render json: {status: 'SUCCESS', message:'List of Posts', total_posts: total_posts, data: posts}, status: :ok
   end
 
   def create
