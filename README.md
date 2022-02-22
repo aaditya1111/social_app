@@ -68,7 +68,7 @@ Features of this app required in assignment:
 * GET - http://localhost:3000/api/v1/posts - Get top N posts API
 
 
-* POST - http://localhost:3000/api/v1/posts/list_internet_protocols - Listing all IPs and it's users API
+* GET - http://localhost:3000/api/v1/posts/list_internet_protocols - Listing all IPs and it's users API
 
 
 * POST - http://localhost:3000/api/v1/feedbacks - Add Feedback API
