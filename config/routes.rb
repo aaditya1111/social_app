@@ -1,3 +1,17 @@
 Rails.application.routes.draw do
-  # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
+  namespace 'api' do
+    namespace 'v1' do
+
+      resources :feedbacks
+      resources :ratings
+
+      resources :posts, only: [:create, :index] do
+        member do
+
+          get 'list_internet_protocols'
+
+        end
+      end
+    end
+  end
 end
